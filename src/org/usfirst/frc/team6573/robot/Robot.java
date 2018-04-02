@@ -173,8 +173,17 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void autonomousPeriodic() {
-		
-//Right Auto Code
+		String message = DriverStation.getInstance().getGameSpecificMessage();
+		if(message.charAt(0)== 'L') {
+			Center_Start_Left_Switch();
+		}
+		else {
+			Center_Start_Right_Switch();
+		}
+	}
+
+	private void Center_Start_Right_Switch() {
+		//Right Auto Code
 		
 		if(autoTimer.get()<1) {
 	leftMotor.set(-0.4);
@@ -221,10 +230,9 @@ public class Robot extends IterativeRobot {
 	leftMotor.set(0);
 		}
 	}
-
-	
-		/*
-	//Left Auto Code	
+	private void Center_Start_Left_Switch() {
+		//Left Auto Code
+		
 		if(autoTimer.get()<1) {
 	leftMotor.set(-0.4);
 	rightMotor.set(.35);
@@ -257,16 +265,21 @@ public class Robot extends IterativeRobot {
 	leftClaw.set(0);
 	rightClaw.set(0);
 }
-		else if(autoTimer.get()<7) {
+		else if(autoTimer.get()<8) {
 	rightMotor.set(0);
 	leftMotor.set(0);
 }
-		else if(autoTimer.get()<8) {
+		else if(autoTimer.get()<8.5) {
 	rightMotor.set(.3);
 	leftMotor.set(-.3);
 }
+		else if(autoTimer.get()<9) {
+	rightMotor.set(0);
+	leftMotor.set(0);
+		}
 	}
-*/
+	
+
 
 		
 		/**
