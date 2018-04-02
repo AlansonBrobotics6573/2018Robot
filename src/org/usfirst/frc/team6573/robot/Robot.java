@@ -67,8 +67,7 @@ public class Robot extends IterativeRobot {
 	Spark hookMotor;
 	Spark leftArm;
 	Spark rightArm;
-	// ROBOT BASE
-	RobotDrive myRobot;
+
     
 	double magnitude;
 	double curve;
@@ -127,7 +126,6 @@ public class Robot extends IterativeRobot {
 		rightClaw = new Spark( 8 );
 		leftClaw  = new Spark( 9 );
 
-		myRobot = new RobotDrive( leftMotor, rightMotor );
 	    
 		autoTimer = new Timer();
 	
@@ -166,23 +164,7 @@ public class Robot extends IterativeRobot {
 		// The robot will drive forward at half speed for 3 seconds and
 		// then stop.
 		
-		/*
-		 * // Drive Forward
-		double counter = 0; 
-		while ( counter < 155 ) {
-			
-			
-			// Autonomous Motor Speed 
-			leftMotor.set( -0.3 );
-			rightMotor.set( 0.29 );
-			
-			counter++;
-			Timer.delay(0.020);
-		}
-		
-		// Stop moving
-		myRobot.drive( 0.00,  0.00 );
-*/		
+
 	
 
 	/**
@@ -296,9 +278,7 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during autonomous
 	 
-	@Override
-	public void autonomousPeriodic() {
-
+	
 
 	/*
 	 * This function is called once when the robot enters operator
@@ -310,7 +290,6 @@ public class Robot extends IterativeRobot {
 		// Uncomment the bottom line if the robot does not seem 
 		// to be responding.
 		autoTimer.stop();
-		myRobot.setSafetyEnabled( false );
 	}
 	
 	
