@@ -167,6 +167,25 @@ public class Robot extends IterativeRobot {
 				Center_Start_Right_Switch();
 			}
 		}
+		else if(autoSelected.equals(startRight)) {
+			if (message.charAt(0) == 'L') {
+				//Right_Start_Left_Switch();
+				Go_Forward_Auton();
+			} else {
+				//Right_Start_Right_Switch();
+				Go_Forward_Auton();
+			}
+		}
+		else if(autoSelected.equals(startLeft)) {
+			if (message.charAt(0) == 'L') {
+				//Left_Start_Left_Switch();
+				Go_Forward_Auton();
+			} else {
+				//Left_Start_Right_Switch();
+				Go_Forward_Auton();
+				}
+			
+		}
 	}
 
 	private void Center_Start_Right_Switch() {
@@ -246,6 +265,14 @@ public class Robot extends IterativeRobot {
 		} else if (autoTimer.get() < 9) {
 			rightMotor.set(0);
 			leftMotor.set(0);
+		}
+	}
+	private void Go_Forward_Auton() {
+		// Left Auto Code
+
+		if (autoTimer.get() < 3) {
+			leftMotor.set(-0.4);
+			rightMotor.set(.35);
 		}
 	}
 
