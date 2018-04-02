@@ -44,8 +44,9 @@ import edu.wpi.first.wpilibj.CameraServer;
  * directory.
  */
 public class Robot extends IterativeRobot {
-	final String defaultAuto = "Default";
-	final String customAuto = "My Auto";
+	final String startRight = "right";
+	final String startCenter = "center";
+	final String startLeft = "left";
 	String autoSelected;
 	SendableChooser<String> chooser = new SendableChooser<>();
 
@@ -101,9 +102,10 @@ public class Robot extends IterativeRobot {
 		// that can change robot behavior. This is not
 		// required to make your robot function. We have
 		// not used this feature in our robot yet.
-		chooser.addDefault("Default Auto", defaultAuto);
-		chooser.addObject("My Auto", customAuto);
-		SmartDashboard.putData("Auto choices", chooser);
+		chooser.addDefault("Center Start", startCenter);
+		chooser.addObject("Left Start", startLeft);
+		chooser.addObject("Right Start", startRight);
+		SmartDashboard.putData("Auton Starting Position", chooser);
 
 		// If the robot is not responding to the joystick then
 		// check or change the USB port in the driver station.
@@ -174,11 +176,13 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		String message = DriverStation.getInstance().getGameSpecificMessage();
+		if(autoSelected.equals(startCenter)) {
 		if(message.charAt(0)== 'L') {
 			Center_Start_Left_Switch();
 		}
 		else {
 			Center_Start_Right_Switch();
+		}
 		}
 	}
 
