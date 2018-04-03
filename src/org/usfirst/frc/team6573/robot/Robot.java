@@ -5,16 +5,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Timer;
-
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.Servo;
-import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.AnalogGyro;
-
 import edu.wpi.first.wpilibj.CameraServer;
 
 // NOTE: All lines beginning with two forward slashes are 
@@ -97,7 +90,7 @@ public class Robot extends IterativeRobot {
 
 		// If the robot is not responding to the joystick then
 		// check or change the USB port in the driver station.
-		myStick = new Joystick(0);
+
 		xbox = new Joystick(1);
 
 		// These numbers represent the PWM ports on the roboRio
@@ -166,30 +159,27 @@ public class Robot extends IterativeRobot {
 			} else {
 				Center_Start_Right_Switch();
 			}
-		}
-		else if(autoSelected.equals(startRight)) {
+		} else if (autoSelected.equals(startRight)) {
 			if (message.charAt(0) == 'L') {
-				//Right_Start_Left_Switch();
-				Go_Forward_Auton();
+				Right_Start_Left_Switch();
+
 			} else {
-				//Right_Start_Right_Switch();
-				Go_Forward_Auton();
+				Right_Start_Right_Switch();
+
 			}
-		}
-		else if(autoSelected.equals(startLeft)) {
+		} else if (autoSelected.equals(startLeft)) {
 			if (message.charAt(0) == 'L') {
-				//Left_Start_Left_Switch();
-				Go_Forward_Auton();
+				Left_Start_Left_Switch();
+
 			} else {
-				//Left_Start_Right_Switch();
-				Go_Forward_Auton();
-				}
-			
+				Left_Start_Right_Switch();
+
+			}
+
 		}
 	}
 
 	private void Center_Start_Right_Switch() {
-		// Right Auto Code
 
 		if (autoTimer.get() < 1) {
 			leftMotor.set(-0.4);
@@ -228,9 +218,113 @@ public class Robot extends IterativeRobot {
 		}
 	}
 
-	private void Center_Start_Left_Switch() {
-		// Left Auto Code
+	private void Left_Start_Right_Switch() {
+		if (autoTimer.get() < 1) {
+			leftMotor.set(-.6);
+			rightMotor.set(.6);
+		} else if (autoTimer.get() < 2) {
+			leftMotor.set(-.3);
+			rightMotor.set(-.3);
+		} else if (autoTimer.get() < 3) {
+			leftMotor.set(-.6);
+			rightMotor.set(.6);
+		} else if (autoTimer.get() < 4) {
+			leftMotor.set(-.3);
+			rightMotor.set(-.3);
+		} else if (autoTimer.get() < 5.2) {
+			rightMotor.set(0);
+			leftMotor.set(0);
+			leftArm.set(.5);
+			rightArm.set(-.5);
+		} else if (autoTimer.get() < 6) {
+			leftClaw.set(1);
+			rightClaw.set(-1);
+		} else if (autoTimer.get() < 6.7) {
+			leftArm.set(-.1);
+			rightArm.set(.1);
+			leftClaw.set(0);
+			rightClaw.set(0);
 
+		}
+	}
+
+	private void Left_Start_Left_Switch() {
+		if (autoTimer.get() < 1) {
+			leftMotor.set(-.4);
+			rightMotor.set(.35);
+		} else if (autoTimer.get() < 2) {
+			leftMotor.set(-.3);
+			rightMotor.set(-.3);
+		} else if (autoTimer.get() < 3) {
+			rightMotor.set(0);
+			leftMotor.set(0);
+			leftArm.set(.5);
+			rightArm.set(-.5);
+		} else if (autoTimer.get() < 6) {
+			leftClaw.set(1);
+			rightClaw.set(-1);
+		} else if (autoTimer.get() < 6.7) {
+			leftArm.set(-.1);
+			rightArm.set(.1);
+			leftClaw.set(0);
+			rightClaw.set(0);
+		}
+	}
+
+	private void Right_Start_Left_Switch() {
+		if (autoTimer.get() < 1) {
+			leftMotor.set(-.6);
+			rightMotor.set(.6);
+		} else if (autoTimer.get() < 2) {
+			leftMotor.set(.3);
+			rightMotor.set(.3);
+		} else if (autoTimer.get() < 3) {
+			leftMotor.set(-.6);
+			rightMotor.set(.6);
+		} else if (autoTimer.get() < 4) {
+			leftMotor.set(.3);
+			rightMotor.set(.3);
+		} else if (autoTimer.get() < 5.2) {
+			rightMotor.set(0);
+			leftMotor.set(0);
+			leftArm.set(.5);
+			rightArm.set(-.5);
+		} else if (autoTimer.get() < 6) {
+			leftClaw.set(1);
+			rightClaw.set(-1);
+		} else if (autoTimer.get() < 6.7) {
+			leftArm.set(-.1);
+			rightArm.set(.1);
+			leftClaw.set(0);
+			rightClaw.set(0);
+
+		}
+	}
+
+	private void Right_Start_Right_Switch() {
+		if (autoTimer.get() < 1) {
+			leftMotor.set(-.4);
+			rightMotor.set(.35);
+		} else if (autoTimer.get() < 2) {
+			leftMotor.set(.3);
+			rightMotor.set(.3);
+		} else if (autoTimer.get() < 3) {
+			rightMotor.set(0);
+			leftMotor.set(0);
+			leftArm.set(.5);
+			rightArm.set(-.5);
+		} else if (autoTimer.get() < 6) {
+			leftClaw.set(1);
+			rightClaw.set(-1);
+		} else if (autoTimer.get() < 6.7) {
+			leftArm.set(-.1);
+			rightArm.set(.1);
+			leftClaw.set(0);
+			rightClaw.set(0);
+		}
+	}
+
+	private void Center_Start_Left_Switch() {
 		if (autoTimer.get() < 1) {
 			leftMotor.set(-0.4);
 			rightMotor.set(.35);
@@ -267,9 +361,8 @@ public class Robot extends IterativeRobot {
 			leftMotor.set(0);
 		}
 	}
-	private void Go_Forward_Auton() {
-		// Left Auto Code
 
+	private void Go_Forward_Auton() {
 		if (autoTimer.get() < 3) {
 			leftMotor.set(-0.4);
 			rightMotor.set(.35);
