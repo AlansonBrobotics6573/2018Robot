@@ -97,7 +97,7 @@ public class Robot extends IterativeRobot {
 
 		// If the robot is not responding to the joystick then
 		// check or change the USB port in the driver station.
-
+		myStick = new Joystick(0);
 		xbox = new Joystick(1);
 
 		// These numbers represent the PWM ports on the roboRio
@@ -166,27 +166,30 @@ public class Robot extends IterativeRobot {
 			} else {
 				Center_Start_Right_Switch();
 			}
-		} else if (autoSelected.equals(startRight)) {
+		}
+		else if(autoSelected.equals(startRight)) {
 			if (message.charAt(0) == 'L') {
-				Right_Start_Left_Switch();
-
+				//Right_Start_Left_Switch();
+				Go_Forward_Auton();
 			} else {
-				Right_Start_Right_Switch();
-
+				//Right_Start_Right_Switch();
+				Go_Forward_Auton();
 			}
-		} else if (autoSelected.equals(startLeft)) {
+		}
+		else if(autoSelected.equals(startLeft)) {
 			if (message.charAt(0) == 'L') {
-				Left_Start_Left_Switch();
-
+				//Left_Start_Left_Switch();
+				Go_Forward_Auton();
 			} else {
-				Left_Start_Right_Switch();
-
-			}
-
+				//Left_Start_Right_Switch();
+				Go_Forward_Auton();
+				}
+			
 		}
 	}
 
 	private void Center_Start_Right_Switch() {
+		// Right Auto Code
 
 		if (autoTimer.get() < 1) {
 			leftMotor.set(-0.4);
@@ -225,113 +228,9 @@ public class Robot extends IterativeRobot {
 		}
 	}
 
-	private void Left_Start_Right_Switch() {
-		if (autoTimer.get() < 1) {
-			leftMotor.set(-.6);
-			rightMotor.set(.6);
-		} else if (autoTimer.get() < 2) {
-			leftMotor.set(-.3);
-			rightMotor.set(-.3);
-		} else if (autoTimer.get() < 3) {
-			leftMotor.set(-.6);
-			rightMotor.set(.6);
-		} else if (autoTimer.get() < 4) {
-			leftMotor.set(-.3);
-			rightMotor.set(-.3);
-		} else if (autoTimer.get() < 5.2) {
-			rightMotor.set(0);
-			leftMotor.set(0);
-			leftArm.set(.5);
-			rightArm.set(-.5);
-		} else if (autoTimer.get() < 6) {
-			leftClaw.set(1);
-			rightClaw.set(-1);
-		} else if (autoTimer.get() < 6.7) {
-			leftArm.set(-.1);
-			rightArm.set(.1);
-			leftClaw.set(0);
-			rightClaw.set(0);
-
-		}
-	}
-
-	private void Left_Start_Left_Switch() {
-		if (autoTimer.get() < 1) {
-			leftMotor.set(-.4);
-			rightMotor.set(.35);
-		} else if (autoTimer.get() < 2) {
-			leftMotor.set(-.3);
-			rightMotor.set(-.3);
-		} else if (autoTimer.get() < 3) {
-			rightMotor.set(0);
-			leftMotor.set(0);
-			leftArm.set(.5);
-			rightArm.set(-.5);
-		} else if (autoTimer.get() < 6) {
-			leftClaw.set(1);
-			rightClaw.set(-1);
-		} else if (autoTimer.get() < 6.7) {
-			leftArm.set(-.1);
-			rightArm.set(.1);
-			leftClaw.set(0);
-			rightClaw.set(0);
-		}
-	}
-
-	private void Right_Start_Left_Switch() {
-		if (autoTimer.get() < 1) {
-			leftMotor.set(-.6);
-			rightMotor.set(.6);
-		} else if (autoTimer.get() < 2) {
-			leftMotor.set(.3);
-			rightMotor.set(.3);
-		} else if (autoTimer.get() < 3) {
-			leftMotor.set(-.6);
-			rightMotor.set(.6);
-		} else if (autoTimer.get() < 4) {
-			leftMotor.set(.3);
-			rightMotor.set(.3);
-		} else if (autoTimer.get() < 5.2) {
-			rightMotor.set(0);
-			leftMotor.set(0);
-			leftArm.set(.5);
-			rightArm.set(-.5);
-		} else if (autoTimer.get() < 6) {
-			leftClaw.set(1);
-			rightClaw.set(-1);
-		} else if (autoTimer.get() < 6.7) {
-			leftArm.set(-.1);
-			rightArm.set(.1);
-			leftClaw.set(0);
-			rightClaw.set(0);
-
-		}
-	}
-
-	private void Right_Start_Right_Switch() {
-		if (autoTimer.get() < 1) {
-			leftMotor.set(-.4);
-			rightMotor.set(.35);
-		} else if (autoTimer.get() < 2) {
-			leftMotor.set(.3);
-			rightMotor.set(.3);
-		} else if (autoTimer.get() < 3) {
-			rightMotor.set(0);
-			leftMotor.set(0);
-			leftArm.set(.5);
-			rightArm.set(-.5);
-		} else if (autoTimer.get() < 6) {
-			leftClaw.set(1);
-			rightClaw.set(-1);
-		} else if (autoTimer.get() < 6.7) {
-			leftArm.set(-.1);
-			rightArm.set(.1);
-			leftClaw.set(0);
-			rightClaw.set(0);
-		}
-	}
-
 	private void Center_Start_Left_Switch() {
+		// Left Auto Code
+
 		if (autoTimer.get() < 1) {
 			leftMotor.set(-0.4);
 			rightMotor.set(.35);
@@ -368,8 +267,9 @@ public class Robot extends IterativeRobot {
 			leftMotor.set(0);
 		}
 	}
-
 	private void Go_Forward_Auton() {
+		// Left Auto Code
+
 		if (autoTimer.get() < 3) {
 			leftMotor.set(-0.4);
 			rightMotor.set(.35);
