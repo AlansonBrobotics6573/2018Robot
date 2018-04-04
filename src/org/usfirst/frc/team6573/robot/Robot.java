@@ -159,8 +159,8 @@ public class Robot extends IterativeRobot {
 			} else {
 				Center_Start_Right_Switch();
 			}
-		} else if (autoSelected.equals(startRight)) {
-			if (message.charAt(0) == 'L') {
+		} else if (autoSelected.equals(startRight)) {  
+			if (message.charAt(0) == 'L') { 
 				Right_Start_Left_Switch();
 
 			} else {
@@ -179,40 +179,43 @@ public class Robot extends IterativeRobot {
 		}
 	}
 
-	private void Center_Start_Right_Switch() {
+	private void Center_Start_Right_Switch() { 
 
 		if (autoTimer.get() < 1) {
 			leftMotor.set(-0.4);
 			rightMotor.set(.35);
 		} else if (autoTimer.get() < 2) {
-			leftMotor.set(-.27);
-			rightMotor.set(-.27);
-		} else if (autoTimer.get() < 3.5) {
-			leftMotor.set(-0.4);
+			leftMotor.set(-.35);
+			rightMotor.set(-.35);
+		} else if (autoTimer.get() < 4.17) {
+			leftMotor.set(-0.37);
+			rightMotor.set(.32); 
+		} else if (autoTimer.get() < 5) { 
+			leftMotor.set(.35);
 			rightMotor.set(.35);
-		} else if (autoTimer.get() < 4.4) {
-			leftMotor.set(.32);
-			rightMotor.set(.32);
-		} else if (autoTimer.get() < 5.2) {
+		} else if (autoTimer.get() < 6.21) { 
+			leftMotor.set(-0.26);
+			rightMotor.set(0.26);
+		} else if (autoTimer.get() < 7) {
 			rightMotor.set(0);
 			leftMotor.set(0);
 			leftArm.set(.5);
 			rightArm.set(-.5);
-		} else if (autoTimer.get() < 6) {
+		} else if (autoTimer.get() < 8) {
 			leftClaw.set(1);
-			rightClaw.set(-1);
-		} else if (autoTimer.get() < 6.7) {
+			rightClaw.set(-1); 
+		} else if (autoTimer.get() < 9) {
 			leftArm.set(-.1);
 			rightArm.set(.1);
 			leftClaw.set(0);
 			rightClaw.set(0);
-		} else if (autoTimer.get() < 8) {
+		} else if (autoTimer.get() < 9.2) {
 			rightMotor.set(0);
 			leftMotor.set(0);
-		} else if (autoTimer.get() < 8.5) {
+		} else if (autoTimer.get() < 9.8) {
 			rightMotor.set(.3);
 			leftMotor.set(-.3);
-		} else if (autoTimer.get() < 9) {
+		} else if (autoTimer.get() < 10.2) {
 			rightMotor.set(0);
 			leftMotor.set(0);
 		}
@@ -329,34 +332,37 @@ public class Robot extends IterativeRobot {
 			leftMotor.set(-0.4);
 			rightMotor.set(.35);
 		} else if (autoTimer.get() < 2) {
-			leftMotor.set(.27);
-			rightMotor.set(.27);
-		} else if (autoTimer.get() < 3.5) {
-			leftMotor.set(-0.4);
-			rightMotor.set(.35);
-		} else if (autoTimer.get() < 4.4) {
-			leftMotor.set(-.32);
-			rightMotor.set(-.32);
-		} else if (autoTimer.get() < 5.2) {
+			leftMotor.set(.37);
+			rightMotor.set(.37);
+		} else if (autoTimer.get() < 4.17) {
+			leftMotor.set(-0.38);
+			rightMotor.set(.33); 
+		} else if (autoTimer.get() < 5) { 
+			leftMotor.set(-.375);
+			rightMotor.set(-.375);
+		} else if (autoTimer.get() < 6.2) { 
+			leftMotor.set(-0.247);
+			rightMotor.set(0.247);
+		} else if (autoTimer.get() < 7) {
 			rightMotor.set(0);
-			leftMotor.set(0);
+			leftMotor.set(0); 
 			leftArm.set(.5);
 			rightArm.set(-.5);
-		} else if (autoTimer.get() < 6) {
+		} else if (autoTimer.get() < 8) {
 			leftClaw.set(1);
-			rightClaw.set(-1);
-		} else if (autoTimer.get() < 6.7) {
+			rightClaw.set(-1); 
+		} else if (autoTimer.get() < 9) {
 			leftArm.set(-.1);
 			rightArm.set(.1);
 			leftClaw.set(0);
 			rightClaw.set(0);
-		} else if (autoTimer.get() < 8) {
+		} else if (autoTimer.get() < 9.2) {
 			rightMotor.set(0);
 			leftMotor.set(0);
-		} else if (autoTimer.get() < 8.5) {
+		} else if (autoTimer.get() < 9.8) {
 			rightMotor.set(.3);
-			leftMotor.set(-.3);
-		} else if (autoTimer.get() < 9) {
+			leftMotor.set(-.3); 
+		} else if (autoTimer.get() < 10.2) {
 			rightMotor.set(0);
 			leftMotor.set(0);
 		}
